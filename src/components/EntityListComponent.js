@@ -14,7 +14,9 @@ const EntityListComponent = props => {
     })
 
     return (
-        entityList
+        <div className="entities">
+        {entityList}
+        </div>
     );
 }
 

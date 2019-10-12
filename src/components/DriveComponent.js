@@ -79,8 +79,8 @@ class DriveComponent extends React.Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.handleCreateFolder}>Create Folder</button>
-        <button onClick={this.handleCreateFile}>Create File</button>
+        <button className="createFolder" onClick={this.handleCreateFolder}>Create Folder</button>
+        <button className="createFile" onClick={this.handleCreateFile}>Create File</button>
         <BreadCrumbsComponent breadCrumbsList={this.state.breadCrumbsList} handleBreadCrumbClick={this.handleBreadCrumbClick} />
         <EntityListComponent subEntities={this.getSubEntities()} handleFolderClick={this.handleFolderClick} />
       </div>

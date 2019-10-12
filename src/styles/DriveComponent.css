@@ -1,22 +1,58 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 60px 60px min-content;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
+button:hover {
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.createFolder {
+  margin: 10px 0px;
+  grid-row: 1 / 2;
+  grid-column: 4 / 6;
+}
+
+.createFile {
+  margin: 10px 0px;
+  grid-row: 1 / 2;
+  grid-column: 8 / 10;
+}
+
+.breadCrumbs {
+  border: 1px solid black;
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px 10px;
+  background-color: #EEE8AA;
 }
 
-.App-link {
-  color: #09d3ac;
+.breadCrumb:hover {
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+
+.entities {
+  grid-row: 3 / -1;
+  grid-column: 5 / 9;
+}
+
+.entity {
+  margin: 10px 0px;
+  border: 1px solid grey;
+  padding: 10px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entity-name {
+  padding: 10px;
 }

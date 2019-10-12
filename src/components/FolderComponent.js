@@ -3,8 +3,8 @@ import React from 'react';
 
 const FolderComponent = props => {
     return (
-        <div>
-            folder - {props.folder.name} - <button onClick={() => props.handleFolderClick(props.folder)}>></button>
+        <div className="entity">
+            <i className="fa fa-folder" aria-hidden="true"></i><span className="entity-name">{props.folder.name}</span><button onClick={() => props.handleFolderClick(props.folder)}>></button>
         </div>
     );
 }

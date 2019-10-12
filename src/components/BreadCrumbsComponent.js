@@ -5,12 +5,12 @@ const BreadCrumbsComponent = props => {
     const { breadCrumbsList } = props;
     const list = breadCrumbsList.map((crumb, index) => {
         return (<div key={crumb.id} onClick={() => props.handleBreadCrumbClick(crumb, index)}>
-            > {crumb.name}
+            > <span className="breadCrumb">{crumb.name}</span>
         </div>)
     })
     return (
-        <div style={{ display: 'flex' }}>
-            {[<div key='home' onClick={() => props.handleBreadCrumbClick({ id: '' }, -1)}>Home</div>, list]}
+        <div className="breadCrumbs">
+            {[<div key='home' onClick={() => props.handleBreadCrumbClick({ id: '' }, -1)}><span className="breadCrumb">Home</span></div>, list]}
         </div>
     );
 }

@@ -4,8 +4,8 @@ import React from 'react';
 const FileComponent = props => {
 
     return (
-        <div>
-            file - {props.file.name}
+        <div className="entity">
+            <i className="fa fa-file" aria-hidden="true"></i><span className="entity-name">{props.file.name}</span>
         </div>
     );
 }
