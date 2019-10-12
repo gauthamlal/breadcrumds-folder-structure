@@ -32,6 +32,10 @@ button:hover {
   background-color: #EEE8AA;
 }
 
+.breadCrumb {
+  padding: 5px;
+}
+
 .breadCrumb:hover {
   border-bottom: 2px solid black;
   cursor: pointer;
