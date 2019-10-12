@@ -4,7 +4,7 @@ import React from 'react';
 const FolderComponent = props => {
     return (
         <div>
-            folder - {props.folder.name}
+            folder - {props.folder.name} - <button onClick={() => props.handleFolderClick(props.folder)}>></button>
         </div>
     );
 }

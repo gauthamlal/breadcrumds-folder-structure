@@ -7,6 +7,7 @@ class DriveComponent extends React.Component {
 
   state = {
     entities: [],
+    breadCrumbsList: [],
     currentFolderId: ''
   }
 
@@ -44,6 +45,16 @@ class DriveComponent extends React.Component {
     }
   }
 
+  handleFolderClick = folder => {
+    this.setState({
+      breadCrumbsList: [
+        ...this.state.breadCrumbsList,
+        folder
+      ],
+      currentFolderId: folder.id
+    })
+  }
+
   getSubEntities = () => {
     const subEntities = this.state.entities.filter(entity => {
       if (entity.parentId === this.state.currentFolderId) {
@@ -59,8 +70,8 @@ class DriveComponent extends React.Component {
         <button onClick={this.handleCreateFolder}>Create Folder</button>
         <button onClick={this.handleCreateFile}>Create File</button>
 
-        <BreadCrumbsComponent />
-        <EntityListComponent subEntities={this.getSubEntities()} />
+        <BreadCrumbsComponent breadCrumbsList={this.state.breadCrumbsList} />
+        <EntityListComponent subEntities={this.getSubEntities()} handleFolderClick={this.handleFolderClick} />
       </div>
     );
   }
