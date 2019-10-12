@@ -1,1 +1,2 @@
 -- Project Started at 7:50pm --
+-- Basic Functionality implemented by 10:25pm. On to giving it a decent style --
