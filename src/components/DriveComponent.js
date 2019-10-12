@@ -13,7 +13,7 @@ class DriveComponent extends React.Component {
 
   handleCreateFolder = () => {
     const name = prompt('Enter the name of the folder', "");
-    if (name.length) {
+    if (name) {
       this.setState({
         entities: [
           ...this.state.entities,
@@ -30,7 +30,7 @@ class DriveComponent extends React.Component {
 
   handleCreateFile = () => {
     const name = prompt('Enter the name of the file', "");
-    if (name.length) {
+    if (name) {
       this.setState({
         entities: [
           ...this.state.entities,
@@ -55,12 +55,24 @@ class DriveComponent extends React.Component {
     })
   }
 
-  getSubEntities = () => {
-    const subEntities = this.state.entities.filter(entity => {
-      if (entity.parentId === this.state.currentFolderId) {
-        return entity;
+  handleBreadCrumbClick = (breadCrumb, index) => {
+    const getNewList = () => {
+      if (index === -1) {
+        return [];
+      } else {
+        return [
+          ...this.state.breadCrumbsList.slice(0, index + 1)
+        ];
       }
+    }
+    this.setState({
+      breadCrumbsList: getNewList(),
+      currentFolderId: breadCrumb.id
     })
+  }
+
+  getSubEntities = () => {
+    const subEntities = this.state.entities.filter(entity => entity.parentId === this.state.currentFolderId)
     return subEntities;
   }
 
@@ -69,8 +81,7 @@ class DriveComponent extends React.Component {
       <div className="App">
         <button onClick={this.handleCreateFolder}>Create Folder</button>
         <button onClick={this.handleCreateFile}>Create File</button>
-
-        <BreadCrumbsComponent breadCrumbsList={this.state.breadCrumbsList} />
+        <BreadCrumbsComponent breadCrumbsList={this.state.breadCrumbsList} handleBreadCrumbClick={this.handleBreadCrumbClick} />
         <EntityListComponent subEntities={this.getSubEntities()} handleFolderClick={this.handleFolderClick} />
       </div>
     );

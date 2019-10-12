@@ -3,14 +3,14 @@ import React from 'react';
 
 const BreadCrumbsComponent = props => {
     const { breadCrumbsList } = props;
-    const list = breadCrumbsList.map(crumb => {
-        return (<div key={crumb.id}>
+    const list = breadCrumbsList.map((crumb, index) => {
+        return (<div key={crumb.id} onClick={() => props.handleBreadCrumbClick(crumb, index)}>
             > {crumb.name}
         </div>)
     })
     return (
-        <div style={{display: 'flex'}}>
-            {[<div key='home'>Home</div>, list]}
+        <div style={{ display: 'flex' }}>
+            {[<div key='home' onClick={() => props.handleBreadCrumbClick({ id: '' }, -1)}>Home</div>, list]}
         </div>
     );
 }
